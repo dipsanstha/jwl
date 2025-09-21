@@ -1,0 +1,30 @@
+{
+  "name": "nepal-price-scraper",
+  "version": "1.0.0",
+  "description": "Real-time gold and silver price scraper for Nepal from GoldPriceZ.com",
+  "main": "price-scraper.js",
+  "scripts": {
+    "start": "node price-scraper.js",
+    "dev": "nodemon price-scraper.js",
+    "test": "node test-scraper.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "nepal",
+    "gold",
+    "silver",
+    "prices",
+    "scraper",
+    "api"
+  ],
+  "author": "New Madi Jewellers",
+  "license": "MIT"
+}
