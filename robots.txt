@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dipsanstha.github.io/jewellery/sitemap.xml
+Sitemap: https://dipsanstha.github.io/jwl/sitemap.xml

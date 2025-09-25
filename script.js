@@ -463,7 +463,7 @@ function initializeSocialSharing() {
                 
                 let shareUrl = '';
                 const siteUrl = window.location.href;
-                const siteTitle = 'New Madi Jewellers - Traditional Nepali Jewellery';
+                const siteTitle = 'New Madi Jewellers - Traditional Nepali JWL';
                 
                 switch(platform) {
                     case 'facebook':
@@ -579,7 +579,7 @@ function initializeSearch() {
         
         searchButton.addEventListener('click', function() {
             // Simple search implementation
-            const query = prompt('Search for jewellery items:');
+            const query = prompt('Search for jwl items:');
             if (query) {
                 const ornamentCards = document.querySelectorAll('.ornament-card');
                 let found = false;
