@@ -6,7 +6,8 @@
 
 class FenegosidaPriceFetcher {
     constructor() {
-        this.apiUrl = 'http://localhost:3001/api/nepal-gold-prices';
+        // API URL will be set from config.json
+        this.apiUrl = '/api/nepal-gold-prices';
         this.fallbackPrices = {
             gold: {
                 fine: {
@@ -51,7 +52,10 @@ class FenegosidaPriceFetcher {
 
         try {
             console.log('Fetching prices from FENEGOSIDA...');
-            const response = await fetch(this.apiUrl, {
+            // Get the full API URL from config
+            const apiBase = window.API_BASE || '';
+            const fullApiUrl = apiBase + (this.apiUrl.startsWith('/') ? '' : '/') + this.apiUrl;
+            const response = await fetch(fullApiUrl, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

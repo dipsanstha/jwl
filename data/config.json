@@ -1,5 +1,5 @@
 {
-  "apiBase": "https://jwl-api.onrender.com",
+  "apiBase": "https://jewellery-api.onrender.com",
   "admin": {
     "users": ["owner"],
     "passHash": "Super.star@123",

@@ -72,14 +72,57 @@ jobs:
         mkdir -p build
         echo "Built at $(date)" > build/build-info.txt
     
+    - name: Verify build output
+      run: |
+        echo "Current directory: $(pwd)"
+        echo "Server directory contents:"
+        ls -la server/ || true
+        echo "Build directory contents:"
+        ls -la server/build/ || true
+        echo "Dist directory contents:"
+        ls -la server/dist/ || true
+        echo "Root directory contents:"
+        ls -la
+    
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
         name: server-build
         path: |
-          server/build/**
-          server/dist/**
-          server/output/**
+          server/build/
+          server/dist/
+          server/output/
+        if-no-files-found: warn
+        retention-days: 5
+    
+    - name: Prepare static files
+      run: |
+        # Create directories if they don't exist
+        mkdir -p assets
+        mkdir -p images
+        mkdir -p css
+        mkdir -p js
+        
+        # List all files that will be included
+        echo "Files to be uploaded:"
+        find . -maxdepth 1 -type f -name "*.html" -o -name "*.xml" -o -name "*.txt" || true
+        find assets/ -type f 2>/dev/null || echo "No files in assets/"
+        find images/ -type f 2>/dev/null || echo "No files in images/"
+        find css/ -type f 2>/dev/null || echo "No files in css/"
+        find js/ -type f 2>/dev/null || echo "No files in js/"
+    
+    - name: Upload static files
+      uses: actions/upload-artifact@v4
+      with:
+        name: static-assets
+        path: |
+          index.html
+          assets/
+          images/
+          css/
+          js/
+          sitemap.xml
+          robots.txt
         if-no-files-found: warn
         retention-days: 5
     
@@ -90,18 +133,3 @@ jobs:
         # Add your deployment commands here
         # For example, using rsync, scp, or a deployment service
         echo "Deployment completed!"
-    
-    - name: Upload static files
-      uses: actions/upload-artifact@v4
-      with:
-        name: static-assets
-        path: |
-          index.html
-          assets/**
-          images/**
-          css/**
-          js/**
-          sitemap.xml
-          robots.txt
-        if-no-files-found: warn
-        retention-days: 5
