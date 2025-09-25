@@ -1,12 +1,11 @@
 {
-  "name": "jwl-server",
+  "name": "nepal-price-scraper",
   "version": "1.0.0",
-  "description": "Backend server for New Madi Jewellers",
+  "description": "Real-time gold and silver price scraper for Nepal from GoldPriceZ.com",
   "main": "price-scraper.js",
   "scripts": {
     "start": "node price-scraper.js",
-    "dev": "node price-scraper.js",
-    "build": "echo 'No build step required'",
+    "dev": "nodemon price-scraper.js",
     "test": "node test-scraper.js"
   },
   "dependencies": {
@@ -23,11 +22,13 @@
     "node": ">=18.0.0"
   },
   "keywords": [
-    "jewellery",
-    "api",
+    "nepal",
+    "gold",
+    "silver",
+    "prices",
     "scraper",
-    "nepal"
+    "api"
   ],
-  "author": "",
+  "author": "New Madi Jewellers",
   "license": "MIT"
 }

@@ -53,7 +53,7 @@ A modern, elegant, and responsive website for New Madi Jewellers, a traditional 
 ## 📁 Project Structure
 
 ```
-jwl/
+jewellery/
 │
 ├── index.html          # Main HTML file
 ├── css/
@@ -80,7 +80,7 @@ jwl/
 #### Using Python (if installed):
 ```bash
 # Navigate to project directory
-cd jwl
+cd jewellery
 
 # Python 3
 python -m http.server 8000
@@ -97,7 +97,7 @@ python -m SimpleHTTPServer 8000
 npm install -g http-server
 
 # Navigate to project directory and run
-cd jwl
+cd jewellery
 http-server
 
 # Then open http://localhost:8080 in your browser
@@ -106,7 +106,7 @@ http-server
 #### Using PHP (if installed):
 ```bash
 # Navigate to project directory
-cd jwl
+cd jewellery
 php -S localhost:8000
 
 # Then open http://localhost:8000 in your browser

@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: jwl-api
+    name: jewellery-api
     env: node
     rootDir: server
     plan: free

@@ -30,7 +30,7 @@ This guide deploys the Node API in `server/` so your GitHub Pages site can uploa
 3. Commit and push to GitHub. Your GitHub Pages site will use the API automatically.
 
 ## Use the Admin Page
-1. Open `https://dipsanstha.github.io/jwl/admin-gallery.html`
+1. Open `https://<your-gh-username>.github.io/jewellery/admin-gallery.html`
 2. In the "Admin Token" panel:
    - Enter the same token you set as `ADMIN_TOKEN` on Render
    - Click "Save Token"
