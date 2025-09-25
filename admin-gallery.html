@@ -302,8 +302,12 @@
         const res = await fetch(API_BASE + '/api/gallery', { method: 'POST', body: fd, credentials: 'include' });
         const data = await res.json();
         if (!data.success) throw new Error(data.error || 'Upload failed');
-        el('status').textContent = 'Uploaded successfully!';
+        el('status').textContent = 'Uploaded successfully! Ready for the next image.';
         el('file').value = '';
+        el('title').value = '';
+        el('description').value = '';
+        el('category').value = 'all';
+        setTimeout(()=>{ try{ el('title')?.focus(); }catch{} }, 50);
         await loadList();
       }catch(e){
         el('status').textContent = 'Error: ' + e.message;
