@@ -1,227 +1,243 @@
-# Nepal Gold & Silver Price Scraper
+# New Madi Jewellers Website
 
-A real-time price scraping service for Nepal gold and silver prices from GoldPriceZ.com. This solves CORS issues by running the web scraping on the server side and providing a clean API interface for your frontend.
+A modern, elegant, and responsive website for New Madi Jewellers, a traditional Nepali jewellery shop located in Bharatpur, Nepal.
 
-## Features
+## ✨ Features
 
-- **Real-time price fetching** from GoldPriceZ.com
-- **Multiple karat gold prices** (24K, 22K, 21K, 18K) 
-- **Silver price tracking** with proper unit conversions
-- **Caching system** (5-minute cache to avoid excessive requests)
-- **Fallback data** when scraping fails
-- **CORS-enabled** API for frontend integration
-- **Health check endpoint** for monitoring
+### 🏪 Business Information
+- **Shop Name**: New Madi Jewellers
+- **Location**: Bharatpur, Chitwan, Nepal
+- **Tagline**: "Where Tradition Meets Elegance"
 
-## Quick Start
+### 🎨 Design Features
+- **Theme**: Gold & White with elegant Nepali-inspired patterns
+- **Typography**: Playfair Display (serif) for headings, Inter (sans-serif) for body text
+- **Responsive Design**: Mobile-first approach, works on all devices
+- **Modern Animations**: Smooth transitions and scroll effects
 
-### 1. Install Dependencies
+### 📱 Sections Included
+1. **Header & Navigation** - Fixed header with smooth scrolling navigation
+2. **Hero Section** - Eye-catching banner with call-to-action
+3. **About Us** - Shop information and key features
+4. **Ornaments Showcase** - Filterable gallery of jewellery categories
+5. **Real-time Prices** - Live gold and silver prices in NPR
+6. **Customer Testimonials** - Social proof from satisfied customers
+7. **Contact Section** - Contact form and shop information
+8. **Footer** - Links, social media, and copyright information
 
+### 💎 Jewellery Categories
+- **Gold Jewellery** - Traditional and modern gold ornaments
+- **Silver Jewellery** - Handcrafted silver pieces
+- **Diamond Jewellery** - Sparkling diamond rings and sets
+- **Bridal Collection** - Complete bridal ornament sets
+- **Traditional Nepali** - Tilhari, Nathiya, Mangalsutra, Chura
+
+### 🚀 Interactive Features
+- Category filtering for ornament showcase
+- Real-time price updates (simulated)
+- Contact form with validation
+- Smooth scrolling navigation
+- Mobile-responsive hamburger menu
+- Price alert subscription system
+- Search functionality
+- Social media integration
+
+## 🛠️ Technology Stack
+
+- **HTML5** - Semantic markup
+- **CSS3** - Modern styling with Grid, Flexbox, and animations  
+- **JavaScript (ES6+)** - Interactive functionality
+- **Font Awesome** - Icons
+- **Google Fonts** - Typography (Playfair Display & Inter)
+
+## 📁 Project Structure
+
+```
+jewellery/
+│
+├── index.html          # Main HTML file
+├── css/
+│   └── style.css       # Main stylesheet
+├── js/
+│   └── script.js       # JavaScript functionality
+├── images/
+│   ├── hero-bg.jpg     # Hero section background
+│   ├── about-bg.jpg    # About section background
+│   ├── ornaments/      # Jewellery product images
+│   └── testimonials/   # Customer testimonial images
+├── assets/             # Additional assets
+└── README.md          # This file
+```
+
+## 🚀 Getting Started
+
+### Method 1: Direct File Opening
+1. Navigate to the project folder
+2. Double-click on `index.html` to open in your default browser
+
+### Method 2: Local Development Server (Recommended)
+
+#### Using Python (if installed):
 ```bash
-cd server
-npm install
+# Navigate to project directory
+cd jewellery
+
+# Python 3
+python -m http.server 8000
+
+# Python 2 (deprecated)
+python -m SimpleHTTPServer 8000
+
+# Then open http://localhost:8000 in your browser
 ```
 
-### 2. Start the Server
-
+#### Using Node.js:
 ```bash
-npm start
+# Install a simple server globally
+npm install -g http-server
+
+# Navigate to project directory and run
+cd jewellery
+http-server
+
+# Then open http://localhost:8080 in your browser
 ```
 
-The server will run on `http://localhost:3001`
-
-### 3. Test the API
-
+#### Using PHP (if installed):
 ```bash
-npm test
+# Navigate to project directory
+cd jewellery
+php -S localhost:8000
+
+# Then open http://localhost:8000 in your browser
 ```
 
-## API Endpoints
+### Method 3: Live Server (VS Code Extension)
+1. Install the "Live Server" extension in VS Code
+2. Right-click on `index.html`
+3. Select "Open with Live Server"
 
-### Get Nepal Gold & Silver Prices
-```
-GET /api/nepal-gold-prices
-```
+## 📱 Responsive Breakpoints
 
-**Response:**
-```json
-{
-  "success": true,
-  "cached": false,
-  "timestamp": "2025-09-20T14:44:01.000Z",
-  "gold": {
-    "pricePerGram": 16714.38,
-    "pricePerTola": 194958,
-    "weeklyChange": "+190.45",
-    "karats": {
-      "24k": 194958,
-      "22k": 178756,
-      "21k": 170589,
-      "18k": 146219
-    },
-    "source": "GoldPriceZ.com",
-    "timestamp": "2025-09-20T14:44:01.000Z"
-  },
-  "silver": {
-    "pricePerKg": 195487.03,
-    "pricePerTola": 2278,
-    "source": "GoldPriceZ.com",
-    "timestamp": "2025-09-20T14:44:01.000Z"
-  }
+- **Desktop**: 1024px and above
+- **Tablet**: 768px - 1023px  
+- **Mobile**: 767px and below
+- **Small Mobile**: 480px and below
+
+## 🎨 Color Palette
+
+- **Primary Gold**: #FFD700
+- **Dark Gold**: #B8860B  
+- **White**: #FEFEFE
+- **Light Gray**: #FAFAFA
+- **Dark Gray**: #333333
+- **Text Gray**: #666666
+
+## 📞 Contact Information
+
+- **Address**: Bharatpur, Chitwan, Nepal
+- **Phone**: +977-56-123456
+- **Mobile**: +977-9845123456
+- **WhatsApp**: +977-9845123456
+- **Email**: info@newmadijewellers.com
+
+## 🌟 Key Features Implementation
+
+### Real-time Price Updates
+- Simulates live gold/silver price fetching
+- Updates every 5 minutes
+- Price change indicators
+- NPR currency formatting
+
+### Ornament Filtering System
+- Category-based filtering
+- Smooth animations
+- Search functionality
+- Responsive grid layout
+
+### Contact Form
+- Form validation
+- Loading states
+- Success/error notifications
+- Phone number formatting for Nepal
+
+### Mobile Navigation
+- Hamburger menu
+- Touch-friendly interactions
+- Smooth animations
+- Outside-click closing
+
+## 🔧 Customization
+
+### Changing Colors
+Edit the CSS variables in `style.css`:
+```css
+:root {
+  --primary-gold: #FFD700;
+  --dark-gold: #B8860B;
+  --white: #FEFEFE;
 }
 ```
 
-### Health Check
-```
-GET /health
-```
+### Adding Real Images
+1. Replace placeholder images in the `images/` folder
+2. Update image paths in `index.html`
+3. Ensure proper alt text for accessibility
+4. Optimize images for web (recommended: WebP format)
+5. Use appropriate image dimensions for different screen sizes
 
-**Response:**
-```json
-{
-  "status": "ok",
-  "timestamp": "2025-09-20T14:44:01.000Z",
-  "cache": {
-    "hasData": true,
-    "lastUpdated": 1726854241000,
-    "age": 30000
-  }
-}
-```
+### API Integration
+- Replace simulated price updates with real API calls
+- Implement actual contact form backend
+- Add payment gateway integration
 
-## How It Works
+## 📈 Performance Optimizations
 
-1. **Web Scraping**: The server fetches HTML pages from GoldPriceZ.com using Axios and Cheerio
-2. **Price Extraction**: Uses multiple CSS selectors and regex patterns to find gold and silver prices
-3. **Unit Conversion**: Converts from grams to tola (1 tola = 11.664 grams) for gold, kg to tola for silver
-4. **Karat Calculation**: Calculates different gold purities (22K = 91.7%, 21K = 87.5%, 18K = 75%)
-5. **Caching**: Stores results for 5 minutes to reduce load on GoldPriceZ.com
-6. **Fallback**: Provides realistic fallback prices when scraping fails
+- **CSS and JS minification**: Ready for production builds
+- **Image optimization**: Use WebP format and appropriate sizing
+- **Lazy loading**: Implemented for images and content
+- **Caching**: Browser caching headers recommended
+- **PWA ready**: Service worker implementation available
+- **CDN ready**: Static assets can be served from CDN
 
-## Frontend Integration
+## 🔒 Security Considerations
 
-Your existing JavaScript price manager will automatically use this API through the `fetchFromLocalAPI()` method:
+- **Form validation**: Implemented on client-side (server-side validation required for production)
+- **XSS protection**: Input sanitization in form fields
+- **HTTPS**: Required for production deployment
+- **API security**: Secure API key management for price feeds
+- **Content Security Policy**: Recommended for production
+- **Input validation**: All user inputs are validated and sanitized
 
-```javascript
-// This is already implemented in your priceManager.js
-const response = await fetch('http://localhost:3001/api/nepal-gold-prices');
-const data = await response.json();
+## 📄 License
 
-if (data.success) {
-    // Use real-time prices from GoldPriceZ.com
-    updatePrices(data);
-}
-```
+This project is created for New Madi Jewellers. All rights reserved.
 
-## Deployment Options
+## 🚀 Deployment
 
-### Option 1: Local Development
-Run the server locally alongside your website during development.
+### For Production Deployment:
+1. **Optimize assets**: Minify CSS and JavaScript files
+2. **Compress images**: Use WebP format and appropriate compression
+3. **Configure server**: Set up proper caching headers
+4. **SSL Certificate**: Ensure HTTPS is enabled
+5. **Test thoroughly**: Check all features across different devices
 
-### Option 2: VPS/Cloud Deployment
-Deploy to services like:
-- **DigitalOcean Droplet** ($6/month)
-- **AWS EC2** (free tier available)
-- **Heroku** (free tier with limitations)
-- **Vercel** (free for API routes)
+### Recommended Hosting Platforms:
+- **Netlify**: Easy deployment with form handling
+- **Vercel**: Fast static site hosting
+- **GitHub Pages**: Free hosting for static sites
+- **Traditional web hosting**: Any provider supporting HTML/CSS/JS
 
-### Option 3: Serverless Functions
-Convert to serverless for platforms like:
-- Vercel API Routes
-- Netlify Functions  
-- AWS Lambda
+## 🤝 Contributing
 
-## Configuration
+For modifications or improvements, please contact the development team.
 
-### Change Port
-```bash
-PORT=8080 npm start
-```
+## 📞 Support
 
-### Configure CORS Origins
-Edit `price-scraper.js`:
-```javascript
-app.use(cors({
-    origin: ['http://localhost', 'https://yourdomain.com'],
-    credentials: true
-}));
-```
-
-### Adjust Cache Duration
-Edit the cache duration in `price-scraper.js`:
-```javascript
-let priceCache = {
-    cacheDuration: 10 * 60 * 1000 // 10 minutes
-};
-```
-
-## Error Handling
-
-The system includes multiple layers of error handling:
-
-1. **Network Errors**: Timeout after 10 seconds
-2. **Parsing Errors**: Multiple fallback extraction methods
-3. **Price Validation**: Checks if prices are in reasonable ranges
-4. **Fallback Data**: Returns realistic backup prices when all else fails
-
-## Monitoring
-
-### Check Server Health
-```bash
-curl http://localhost:3001/health
-```
-
-### View Logs
-The server logs all scraping attempts and errors to the console.
-
-### Monitor Cache Performance
-The health endpoint shows cache statistics to help optimize performance.
-
-## Troubleshooting
-
-### Server Won't Start
-- Check if port 3001 is available
-- Install dependencies: `npm install`
-- Check Node.js version (requires Node 14+)
-
-### Prices Not Updating
-- Check if GoldPriceZ.com is accessible
-- Verify the HTML structure hasn't changed
-- Check server logs for parsing errors
-
-### CORS Errors
-- Ensure your frontend origin is in the CORS configuration
-- Check that the server is running and accessible
-
-### Cache Issues
-- Restart the server to clear cache
-- Adjust cache duration if needed
-- Check the health endpoint for cache status
-
-## Production Considerations
-
-1. **Rate Limiting**: Add rate limiting to prevent abuse
-2. **Authentication**: Add API keys for production use
-3. **Monitoring**: Add proper logging and monitoring
-4. **SSL**: Use HTTPS in production
-5. **Load Balancing**: Use multiple instances for high availability
-
-## Example Usage in Your Website
-
-Your existing price manager will now automatically fetch real prices:
-
-```javascript
-// This happens automatically every 30 minutes
-const priceManager = new NepalPriceManager();
-
-// Prices will now show:
-// 24K Gold: NPR 1,94,958 per tola (Real-time from GoldPriceZ.com)
-// Silver: NPR 2,278 per tola (Real-time from GoldPriceZ.com)
-```
-
-## License
-
-MIT License - feel free to modify and use for your business needs.
+For technical support or questions about this website:
+- **Email**: support@newmadijewellers.com
+- **Phone**: +977-56-123456
 
 ---
 
-**Ready to get real-time Nepal gold and silver prices on your website!** 🏆💰
+**Made with ❤️ for preserving Nepali tradition in modern digital format**

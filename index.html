@@ -5,13 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Madi Jewellers - Where Tradition Meets Elegance | Bharatpur, Nepal</title>
     <meta name="description" content="New Madi Jewellers - Trusted family-owned jewellery store in Bharatpur, Nepal offering gold, silver, and diamond ornaments with traditional Nepali designs.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/ornament-list.css">
-    <link rel="stylesheet" href="css/price-analytics.css">
+    <link rel="canonical" href="https://dipsanstha.github.io/jewellery/">
+    <meta property="og:title" content="New Madi Jewellers - Where Tradition Meets Elegance | Bharatpur, Nepal">
+    <meta property="og:description" content="New Madi Jewellers - Trusted family-owned jewellery store in Bharatpur, Nepal offering gold, silver, and diamond ornaments with traditional Nepali designs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dipsanstha.github.io/jewellery/">
+    <meta property="og:image" content="https://dipsanstha.github.io/jewellery/images/image.png">
+    <meta property="og:site_name" content="New Madi Jewellers">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="New Madi Jewellers - Where Tradition Meets Elegance | Bharatpur, Nepal">
+    <meta name="twitter:description" content="New Madi Jewellers - Trusted family-owned jewellery store in Bharatpur, Nepal offering gold, silver, and diamond ornaments with traditional Nepali designs.">
+    <meta name="twitter:image" content="https://dipsanstha.github.io/jewellery/images/image.png">
+    <link rel="stylesheet" href="css/style.css?v=1.0">
     <link rel="icon" href="images/image.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" id="fa-cdn-primary">
+    <script>
+      (function(){
+        function ensureFontAwesome(){
+          try {
+            var test = document.createElement('i');
+            test.className = 'fa';
+            document.head.appendChild(test);
+            var fam = window.getComputedStyle(test).getPropertyValue('font-family') || '';
+            document.head.removeChild(test);
+            if (fam.toLowerCase().indexOf('font awesome') === -1) {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css';
+              link.id = 'fa-cdn-fallback';
+              document.head.appendChild(link);
+              console.warn('Loaded Font Awesome from CDN fallback');
+            }
+          } catch(e) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css';
+            link.id = 'fa-cdn-fallback';
+            document.head.appendChild(link);
+          }
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', ensureFontAwesome);
+        } else {
+          ensureFontAwesome();
+        }
+      })();
+    </script>
+    
 </head>
 <body>
     <!-- Header -->
@@ -29,10 +72,9 @@
                     <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
                     <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
                     <li class="nav-item"><a href="#ornaments" class="nav-link">Ornaments</a></li>
-                    <li class="nav-item"><a href="#prices" class="nav-link">Price List</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburger" role="button" aria-label="Open menu" tabindex="0">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -49,10 +91,35 @@
         </div>
         <div class="hero-content">
             <div class="container">
-                <h1 class="hero-title">Trusted Jewellery Shop in Bharatpur, Nepal</h1>
+                <h1 class="hero-title">Trusted Jewellery Shop in Narayangarh, Bharatpur, Nepal</h1>
                 <p class="hero-subtitle">Discover our exquisite collection of traditional Nepali ornaments crafted with precision and love</p>
-                <a href="#ornaments" class="cta-button">Explore Our Collection</a>
+                <a href="#about" class="cta-button">Browse Ornaments</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Ornaments Section (New) -->
+    <section id="ornaments" class="ornaments">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Ornaments</h2>
+                <div class="section-divider"></div>
+                <p>Explore our curated selection across popular categories</p>
+            </div>
+
+            <div class="category-tabs">
+                <button class="tab-button active" data-category="all">All</button>
+                <button class="tab-button" data-category="gold">Gold</button>
+                <button class="tab-button" data-category="silver">Silver</button>
+                <button class="tab-button" data-category="diamond">Diamond</button>
+                <button class="tab-button" data-category="bridal">Bridal</button>
+                <button class="tab-button" data-category="traditional">Traditional Nepali</button>
+            </div>
+
+            <div class="ornaments-grid">
+                
+            </div>
+
         </div>
     </section>
 
@@ -86,964 +153,35 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="images/p1.png" alt="Traditional Nepali Jewellery Making">
+                    <img src="images/photo.jpg" alt="Traditional Nepali Jewellery Making" loading="lazy" width="640" height="426">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Combined Ornaments Section -->
+    <!-- Ornaments Section (Dynamic) -->
     <section id="ornaments" class="ornaments">
         <div class="container">
             <div class="section-header">
-                <h2>Our Ornament Collections</h2>
+                <h2>Latest Ornaments</h2>
                 <div class="section-divider"></div>
-                <p>Explore our diverse range of traditional and modern jewellery pieces</p>
-            </div>
-            
-            <!-- View Toggle -->
-          
-
-            <!-- Grid View -->
-            <div class="view-content" id="grid-view">
-            <div class="category-tabs">
-                <button class="tab-button active" data-category="all">All Collections</button>
-                <button class="tab-button" data-category="gold">Gold Jewellery</button>
-                <button class="tab-button" data-category="silver">Silver Jewellery</button>
-                <button class="tab-button" data-category="diamond">Diamond Jewellery</button>
-                <button class="tab-button" data-category="bridal">Bridal Collection</button>
-                <button class="tab-button" data-category="traditional">Traditional Nepali</button>
+                <p>Recently uploaded items from our collection</p>
             </div>
 
             <div class="ornaments-grid">
-                <!-- Gold Jewellery -->
-                <div class="ornament-card" data-category="gold">
-                    <div class="card-image">
-                        <div class="image-placeholder gold-placeholder">
-                            <img src="images/Screenshot 2025-09-21 100934.png" alt="Gold Necklace"> 
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Traditional Gold Necklace</h3>
-                        <p>Elegant 22k gold necklace with intricate Nepali design patterns</p>
-                        <span class="category-tag gold-tag">Gold Jewellery</span>
-                    </div>
-                </div>
-
-                <div class="ornament-card" data-category="gold">
-                    <div class="card-image">
-                        <div class="image-placeholder gold-placeholder">
-                           <img src="images/Screenshot 2025-09-21 101749.png" alt="Gold Necklace">
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Gold Bangles Set</h3>
-                        <p>Beautiful set of 22k gold bangles with traditional patterns</p>
-                        <span class="category-tag gold-tag">Gold Jewellery</span>
-                    </div>
-                </div>
-
-                <div class="ornament-card" data-category="gold">
-                    <div class="card-image">
-                        <div class="image-placeholder gold-placeholder">
-                           <img src="images/Screenshot 2025-09-21 102038.png" alt="Gold Earrings">
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Gold Drop Earrings</h3>
-                        <p>Exquisite 22k gold earrings with detailed craftsmanship</p>
-                        <span class="category-tag gold-tag">Gold Jewellery</span>
-                    </div>
-                </div>
-
-                <!-- Silver Jewellery -->
-                <div class="ornament-card" data-category="silver">
-                    <div class="card-image">
-                        <div class="image-placeholder silver-placeholder">
-                            <img src="images/Screenshot 2025-09-21 102437.png" alt="Silver Earrings">
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Silver Chandelier Earrings</h3>
-                        <p>Handcrafted silver earrings with traditional motifs</p>
-                        <span class="category-tag silver-tag">Silver Jewellery</span>
-                    </div>
-                </div>
-
-                <div class="ornament-card" data-category="silver">
-                    <div class="card-image">
-                        <div class="image-placeholder silver-placeholder">
-                            <img src="images/Screenshot 2025-09-21 102.png" alt="Silver Bangles">
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Silver Bangles</h3>
-                        <p>Pure silver bangles with intricate engravings</p>
-                        <span class="category-tag silver-tag">Silver Jewellery</span>
-                    </div>
-                </div>                <!-- Diamond Jewellery -->
-                <div class="ornament-card" data-category="diamond">
-                    <div class="card-image">
-                        <div class="image-placeholder diamond-placeholder">
-                            <i class="far fa-gem"></i>
-                            <span class="placeholder-text">Diamond Ring</span>
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Diamond Engagement Ring</h3>
-                        <p>Stunning solitaire diamond ring in 18k gold setting</p>
-                        <span class="category-tag diamond-tag">Diamond Jewellery</span>
-                    </div>
-                </div>
-
-                <div class="ornament-card" data-category="diamond">
-                    <div class="card-image">
-                        <div class="image-placeholder diamond-placeholder">
-                            <i class="fas fa-star"></i>
-                            <span class="placeholder-text">Diamond Necklace</span>
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Diamond Tennis Necklace</h3>
-                        <p>Elegant diamond necklace with brilliant cut stones</p>
-                        <span class="category-tag diamond-tag">Diamond Jewellery</span>
-                    </div>
-                </div>
-
-                <!-- Traditional Nepali -->
-                <div class="ornament-card" data-category="traditional bridal">
-                    <div class="card-image">
-                        <div class="image-placeholder traditional-placeholder">
-                            <img src="images/Screenshot 2025-09-21 100836.png" alt="Traditional Tilhari">
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Traditional Tilhari</h3>
-                        <p>Authentic Nepali tilhari with gold and coral beads</p>
-                        <span class="category-tag traditional-tag">Traditional Nepali</span>
-                    </div>
-                </div>
-
-                <div class="ornament-card" data-category="traditional bridal">
-                    <div class="card-image">
-                        <div class="image-placeholder traditional-placeholder">
-                            <img src="images/Screenshot 2025-09-21 101037.png" alt="Traditional Tilhari">
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Traditional Nathiya</h3>
-                        <p>Elegant nose ring with traditional Nepali craftsmanship</p>
-                        <span class="category-tag traditional-tag">Traditional Nepali</span>
-                    </div>
-                </div>
-
-                <div class="ornament-card" data-category="bridal traditional">
-                    <div class="card-image">
-                        <div class="image-placeholder bridal-placeholder">
-                            <i class="fas fa-hand-sparkles"></i>
-                            <span class="placeholder-text">Chura Set</span>
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Bridal Chura Set</h3>
-                        <p>Complete set of traditional red and white bridal bangles</p>
-                        <span class="category-tag bridal-tag">Bridal Collection</span>
-                    </div>
-                </div>
-
-                <div class="ornament-card" data-category="traditional gold">
-                    <div class="card-image">
-                        <div class="image-placeholder traditional-placeholder">
-                            <i class="fas fa-heart"></i>
-                            <span class="placeholder-text">Mangalsutra</span>
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Gold Mangalsutra</h3>
-                        <p>Sacred marriage necklace with traditional black beads</p>
-                        <span class="category-tag traditional-tag">Traditional Nepali</span>
-                    </div>
-                </div>
-
-                <div class="ornament-card" data-category="bridal gold">
-                    <div class="card-image">
-                        <div class="image-placeholder bridal-placeholder">
-                            <img src="images/Screenshot 2025-09-21 101532.png" alt="Gold Necklace">
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Complete Bridal Set</h3>
-                        <p>Full bridal jewellery set including necklace, earrings, and bangles</p>
-                        <span class="category-tag bridal-tag">Bridal Collection</span>
-                    </div>
-                </div>
-
-                <div class="ornament-card" data-category="gold traditional">
-                    <div class="card-image">
-                        <div class="image-placeholder gold-placeholder">
-                            <i class="fas fa-coins"></i>
-                            <span class="placeholder-text">Gold Chain</span>
-                        </div>
-                        <div class="card-overlay">
-                            <button class="view-btn">View Details</button>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Traditional Gold Chain</h3>
-                        <p>Classic 22k gold chain with traditional Nepali design</p>
-                        <span class="category-tag gold-tag">Gold Jewellery</span>
-                        </div>
-                    </div>
-                </div>
+                <!-- populated by js/gallery.js -->
             </div>
 
-            <!-- Accordion View -->
-            <div class="view-content" id="accordion-view" style="display: none;">
-                <div class="ornament-accordion">
-                <!-- Gold Ornaments Section -->
-                <div class="ornament-section">
-                    <div class="section-header-accordion" data-section="gold-ornaments" role="button" tabindex="0" aria-expanded="false" aria-controls="gold-ornaments">
-                        <div class="section-title">
-                            <i class="fas fa-crown gold-icon"></i>
-                            <h3>Gold Ornaments</h3>
-                            <span class="ornament-count">6 items</span>
-                        </div>
-                        <div class="section-toggle">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div class="ornament-content" id="gold-ornaments">
-                        <div class="ornament-grid">
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-ring"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Gold Necklace (हार)</h4>
-                                    <p>Traditional 22k gold necklace with intricate designs</p>
-                                    <span class="ornament-type">Available in 18k, 21k, 22k, 24k</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-circle-notch"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Gold Bangles (चूड़ी)</h4>
-                                    <p>Beautiful set of gold bangles with traditional patterns</p>
-                                    <span class="ornament-type">Available in 18k, 21k, 22k, 24k</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-gem"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Gold Earrings (कानको झुम्का)</h4>
-                                    <p>Exquisite gold earrings with detailed craftsmanship</p>
-                                    <span class="ornament-type">Available in 18k, 21k, 22k, 24k</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-coins"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Gold Chain (चेन)</h4>
-                                    <p>Classic gold chain with traditional Nepali design</p>
-                                    <span class="ornament-type">Available in 18k, 21k, 22k, 24k</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Gold Mangalsutra (मंगलसूत्र)</h4>
-                                    <p>Sacred marriage necklace with traditional black beads</p>
-                                    <span class="ornament-type">Available in 18k, 21k, 22k, 24k</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-hand-sparkles"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Gold Finger Rings (छल्ला)</h4>
-                                    <p>Elegant gold rings for all occasions</p>
-                                    <span class="ornament-type">Available in 18k, 21k, 22k, 24k</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Silver Ornaments Section -->
-                <div class="ornament-section">
-                    <div class="section-header-accordion" data-section="silver-ornaments" role="button" tabindex="0" aria-expanded="false" aria-controls="silver-ornaments">
-                        <div class="section-title">
-                            <i class="fas fa-medal silver-icon"></i>
-                            <h3>Silver Ornaments</h3>
-                            <span class="ornament-count">4 items</span>
-                        </div>
-                        <div class="section-toggle">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div class="ornament-content" id="silver-ornaments">
-                        <div class="ornament-grid">
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-medal"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Silver Earrings (चाँदीको झुम्का)</h4>
-                                    <p>Handcrafted silver earrings with traditional motifs</p>
-                                    <span class="ornament-type">Pure silver with traditional designs</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-circle"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Silver Bangles (चाँदीको चूड़ी)</h4>
-                                    <p>Pure silver bangles with intricate engravings</p>
-                                    <span class="ornament-type">Pure silver with traditional patterns</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-ring"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Silver Necklace (चाँदीको हार)</h4>
-                                    <p>Elegant silver necklace with traditional designs</p>
-                                    <span class="ornament-type">Pure silver with intricate work</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-hand-sparkles"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Silver Finger Rings (चाँदीको छल्ला)</h4>
-                                    <p>Beautiful silver rings with traditional patterns</p>
-                                    <span class="ornament-type">Pure silver with engravings</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Traditional Nepali Ornaments Section -->
-                <div class="ornament-section">
-                    <div class="section-header-accordion" data-section="traditional-ornaments" role="button" tabindex="0" aria-expanded="false" aria-controls="traditional-ornaments">
-                        <div class="section-title">
-                            <i class="fas fa-star traditional-icon"></i>
-                            <h3>Traditional Nepali Ornaments</h3>
-                            <span class="ornament-count">6 items</span>
-                        </div>
-                        <div class="section-toggle">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div class="ornament-content" id="traditional-ornaments">
-                        <div class="ornament-grid">
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-crown"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Tilhari (तिलहरी)</h4>
-                                    <p>Authentic Nepali tilhari with gold and coral beads</p>
-                                    <span class="ornament-type">Traditional bridal ornament</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-dot-circle"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Nathiya (नथिया)</h4>
-                                    <p>Elegant nose ring with traditional Nepali craftsmanship</p>
-                                    <span class="ornament-type">Traditional nose ornament</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-hand-sparkles"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Chura Set (चुरा सेट)</h4>
-                                    <p>Complete set of traditional red and white bridal bangles</p>
-                                    <span class="ornament-type">Bridal collection</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-gem"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Pote (पोते)</h4>
-                                    <p>Traditional red and yellow bead necklace</p>
-                                    <span class="ornament-type">Traditional accessory</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-circle-notch"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Kalli (कल्ली)</h4>
-                                    <p>Traditional ankle bracelet with bells</p>
-                                    <span class="ornament-type">Traditional foot ornament</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Hansuli (हंसुली)</h4>
-                                    <p>Traditional neck ornament with intricate designs</p>
-                                    <span class="ornament-type">Traditional neck piece</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Diamond & Precious Stone Ornaments Section -->
-                <div class="ornament-section">
-                    <div class="section-header-accordion" data-section="diamond-ornaments" role="button" tabindex="0" aria-expanded="false" aria-controls="diamond-ornaments">
-                        <div class="section-title">
-                            <i class="far fa-gem diamond-icon"></i>
-                            <h3>Diamond & Precious Stone Ornaments</h3>
-                            <span class="ornament-count">4 items</span>
-                        </div>
-                        <div class="section-toggle">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div class="ornament-content" id="diamond-ornaments">
-                        <div class="ornament-grid">
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="far fa-gem"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Diamond Engagement Ring</h4>
-                                    <p>Stunning solitaire diamond ring in 18k gold setting</p>
-                                    <span class="ornament-type">Diamond with gold setting</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Diamond Tennis Necklace</h4>
-                                    <p>Elegant diamond necklace with brilliant cut stones</p>
-                                    <span class="ornament-type">Diamond with gold setting</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-ring"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Diamond Earrings</h4>
-                                    <p>Beautiful diamond earrings with various cuts</p>
-                                    <span class="ornament-type">Diamond with gold setting</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-gem"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Ruby & Gold Set</h4>
-                                    <p>Traditional ruby and gold ornament set</p>
-                                    <span class="ornament-type">Ruby with gold setting</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bridal Collection Section -->
-                <div class="ornament-section">
-                    <div class="section-header-accordion" data-section="bridal-ornaments" role="button" tabindex="0" aria-expanded="false" aria-controls="bridal-ornaments">
-                        <div class="section-title">
-                            <i class="fas fa-rings-wedding bridal-icon"></i>
-                            <h3>Bridal Collection</h3>
-                            <span class="ornament-count">4 items</span>
-                        </div>
-                        <div class="section-toggle">
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                    </div>
-                    <div class="ornament-content" id="bridal-ornaments">
-                        <div class="ornament-grid">
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-rings-wedding"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Complete Bridal Set</h4>
-                                    <p>Full bridal jewellery set including necklace, earrings, and bangles</p>
-                                    <span class="ornament-type">Complete bridal collection</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-crown"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Bridal Tiara (मुकुट)</h4>
-                                    <p>Elegant bridal tiara with traditional designs</p>
-                                    <span class="ornament-type">Bridal headpiece</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-hand-sparkles"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Bridal Hand Set</h4>
-                                    <p>Complete hand ornament set for brides</p>
-                                    <span class="ornament-type">Bridal hand ornaments</span>
-                                </div>
-                            </div>
-                            
-                            <div class="ornament-item">
-                                <div class="ornament-icon">
-                                    <i class="fas fa-circle-notch"></i>
-                                </div>
-                                <div class="ornament-details">
-                                    <h4>Bridal Anklet Set</h4>
-                                    <p>Traditional bridal anklet with bells</p>
-                                    <span class="ornament-type">Bridal foot ornaments</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
-
-    <!-- Daily Price Update Section -->
-    <section id="prices" class="prices">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2>Daily Price Update</h2>
+                <h2>Customer Testimonials</h2>
                 <div class="section-divider"></div>
-                <p class="section-subtitle">Today's rates from FENEGOSIDA.org</p>
+                <p>What our customers say about New Madi Jewellers</p>
             </div>
-            
-            <div class="daily-price-list">
-                <!-- Fine Gold (9999) per Tola -->
-                <div class="price-item" data-price="fine-gold-tola">
-                    <div class="price-left">
-                        <i class="fas fa-crown gold-icon"></i>
-                        <span class="metal-name">Fine Gold (9999)</span>
-                    </div>
-                    <div class="price-center">
-                        <span class="amount">NPR 216,000</span>
-                        <span class="unit">per tola</span>
-                    </div>
-                    <div class="price-right">
-                        <span class="change-indicator positive">
-                            <i class="fas fa-arrow-up"></i>
-                            +0
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Fine Gold (9999) per 10grm -->
-                <div class="price-item" data-price="fine-gold-10grm">
-                    <div class="price-left">
-                        <i class="fas fa-coins gold-icon"></i>
-                        <span class="metal-name">Fine Gold (9999)</span>
-                    </div>
-                    <div class="price-center">
-                        <span class="amount">NPR 185,185</span>
-                        <span class="unit">per 10 grm</span>
-                    </div>
-                    <div class="price-right">
-                        <span class="change-indicator positive">
-                            <i class="fas fa-arrow-up"></i>
-                            +0
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Gold 24K -->
-                <div class="price-item" data-price="gold-24k">
-                    <div class="price-left">
-                        <i class="fas fa-gem gold-icon"></i>
-                        <span class="metal-name">Gold 24K</span>
-                    </div>
-                    <div class="price-center">
-                        <span class="amount">NPR 216,000</span>
-                        <span class="unit">per tola</span>
-                    </div>
-                    <div class="price-right">
-                        <span class="change-indicator positive">
-                            <i class="fas fa-arrow-up"></i>
-                            +0
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Gold 22K -->
-                <div class="price-item" data-price="gold-22k">
-                    <div class="price-left">
-                        <i class="fas fa-ring gold-icon"></i>
-                        <span class="metal-name">Gold 22K</span>
-                    </div>
-                    <div class="price-center">
-                        <span class="amount">NPR 198,072</span>
-                        <span class="unit">per tola</span>
-                    </div>
-                    <div class="price-right">
-                        <span class="change-indicator positive">
-                            <i class="fas fa-arrow-up"></i>
-                            +0
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Gold 21K -->
-                <div class="price-item" data-price="gold-21k">
-                    <div class="price-left">
-                        <i class="fas fa-circle gold-icon"></i>
-                        <span class="metal-name">Gold 21K</span>
-                    </div>
-                    <div class="price-center">
-                        <span class="amount">NPR 189,000</span>
-                        <span class="unit">per tola</span>
-                    </div>
-                    <div class="price-right">
-                        <span class="change-indicator positive">
-                            <i class="fas fa-arrow-up"></i>
-                            +0
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Gold 18K -->
-                <div class="price-item" data-price="gold-18k">
-                    <div class="price-left">
-                        <i class="fas fa-dot-circle gold-icon"></i>
-                        <span class="metal-name">Gold 18K</span>
-                    </div>
-                    <div class="price-center">
-                        <span class="amount">NPR 162,000</span>
-                        <span class="unit">per tola</span>
-                    </div>
-                    <div class="price-right">
-                        <span class="change-indicator positive">
-                            <i class="fas fa-arrow-up"></i>
-                            +0
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Silver -->
-                <div class="price-item" data-price="silver">
-                    <div class="price-left">
-                        <i class="fas fa-medal silver-icon"></i>
-                        <span class="metal-name">Silver</span>
-                    </div>
-                    <div class="price-center">
-                        <span class="amount">NPR 2,580</span>
-                        <span class="unit">per tola</span>
-                    </div>
-                    <div class="price-right">
-                        <span class="change-indicator positive">
-                            <i class="fas fa-arrow-up"></i>
-                            +0
-                        </span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="update-time">
-                <i class="fas fa-clock"></i>
-                <span class="last-updated">Last updated: Today 2:30 PM</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Price Analytics Section -->
-    <section id="price-analytics" class="price-analytics">
-        <div class="container">
-            <div class="section-header">
-                <h2>Price Analysis & Trends</h2>
-                <div class="section-divider"></div>
-                <p class="section-subtitle">Comprehensive analysis of gold and silver price movements</p>
-            </div>
-
-            <!-- Analytics Summary -->
-            <div class="analytics-summary">
-                <div class="summary-card">
-                    <div class="summary-header">
-                        <h3>Market Overview</h3>
-                        <div class="summary-actions">
-                            <button class="btn-secondary" onclick="window.priceAnalytics?.refreshCharts()">
-                                <i class="fas fa-sync-alt"></i> Refresh
-                            </button>
-                            <button class="btn-secondary" onclick="window.priceAnalytics?.exportData()">
-                                <i class="fas fa-download"></i> Export
-                            </button>
-                        </div>
-                    </div>
-                    <div id="priceSummary" class="summary-content">
-                        <div class="summary-item">
-                            <h4>Current Gold 24K</h4>
-                            <p>NPR 216,000</p>
-                        </div>
-                        <div class="summary-item">
-                            <h4>Current Silver</h4>
-                            <p>NPR 2,580</p>
-                        </div>
-                        <div class="summary-item">
-                            <h4>Market Status</h4>
-                            <p class="market-status">Active</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Charts Grid -->
-            <div class="charts-grid">
-                <!-- Price Trend Chart -->
-                <div class="chart-container">
-                    <div class="chart-header">
-                        <h3>Price Trends</h3>
-                        <p>15-day price movement analysis</p>
-                    </div>
-                    <div class="chart-wrapper">
-                        <canvas id="priceTrendChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Price Comparison Chart -->
-                <div class="chart-container">
-                    <div class="chart-header">
-                        <h3>Daily Comparison</h3>
-                        <p>Current vs previous day prices</p>
-                    </div>
-                    <div class="chart-wrapper">
-                        <canvas id="priceComparisonChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Volatility Analysis -->
-                <div class="chart-container">
-                    <div class="chart-header">
-                        <h3>Volatility Analysis</h3>
-                        <p>Market volatility distribution</p>
-                    </div>
-                    <div class="chart-wrapper">
-                        <canvas id="volatilityChart"></canvas>
-                    </div>
-                </div>
-
-                <!-- Moving Average Chart -->
-                <div class="chart-container">
-                    <div class="chart-header">
-                        <h3>Moving Averages</h3>
-                        <p>5-day and 10-day moving averages</p>
-                    </div>
-                    <div class="chart-wrapper">
-                        <canvas id="movingAverageChart"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Detailed Analysis -->
-            <div class="analysis-details">
-                <div class="analysis-tabs">
-                    <button class="tab-btn active" data-tab="daily-analysis">Daily Analysis</button>
-                    <button class="tab-btn" data-tab="weekly-analysis">Weekly Analysis</button>
-                    <button class="tab-btn" data-tab="trend-analysis">Trend Analysis</button>
-                </div>
-
-                <div class="analysis-content">
-                    <!-- Daily Analysis -->
-                    <div class="tab-content active" id="daily-analysis">
-                        <div class="analysis-grid">
-                            <div class="analysis-item" data-metal="gold24k">
-                                <div class="metal-header">
-                                    <i class="fas fa-crown gold-icon"></i>
-                                    <h4>Gold 24K</h4>
-                                </div>
-                                <div class="price-info">
-                                    <span class="current-price">NPR 216,000</span>
-                                    <div class="daily-change"></div>
-                                    <div class="trend-indicator"></div>
-                                </div>
-                            </div>
-
-                            <div class="analysis-item" data-metal="gold22k">
-                                <div class="metal-header">
-                                    <i class="fas fa-ring gold-icon"></i>
-                                    <h4>Gold 22K</h4>
-                                </div>
-                                <div class="price-info">
-                                    <span class="current-price">NPR 198,072</span>
-                                    <div class="daily-change"></div>
-                                    <div class="trend-indicator"></div>
-                                </div>
-                            </div>
-
-                            <div class="analysis-item" data-metal="gold21k">
-                                <div class="metal-header">
-                                    <i class="fas fa-circle gold-icon"></i>
-                                    <h4>Gold 21K</h4>
-                                </div>
-                                <div class="price-info">
-                                    <span class="current-price">NPR 189,000</span>
-                                    <div class="daily-change"></div>
-                                    <div class="trend-indicator"></div>
-                                </div>
-                            </div>
-
-                            <div class="analysis-item" data-metal="gold18k">
-                                <div class="metal-header">
-                                    <i class="fas fa-dot-circle gold-icon"></i>
-                                    <h4>Gold 18K</h4>
-                                </div>
-                                <div class="price-info">
-                                    <span class="current-price">NPR 162,000</span>
-                                    <div class="daily-change"></div>
-                                    <div class="trend-indicator"></div>
-                                </div>
-                            </div>
-
-                            <div class="analysis-item" data-metal="silver">
-                                <div class="metal-header">
-                                    <i class="fas fa-medal silver-icon"></i>
-                                    <h4>Silver</h4>
-                                </div>
-                                <div class="price-info">
-                                    <span class="current-price">NPR 2,580</span>
-                                    <div class="daily-change"></div>
-                                    <div class="trend-indicator"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Weekly Analysis -->
-                    <div class="tab-content" id="weekly-analysis">
-                        <div class="weekly-stats">
-                            <div class="stat-card">
-                                <h4>Weekly Performance</h4>
-                                <div class="stat-items">
-                                    <div class="stat-item">
-                                        <span class="stat-label">Best Performer</span>
-                                        <span class="stat-value gold">Gold 24K (+2.1%)</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <span class="stat-label">Most Volatile</span>
-                                        <span class="stat-value silver">Silver (+1.8%)</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <span class="stat-label">Market Trend</span>
-                                        <span class="stat-value positive">Bullish</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Trend Analysis -->
-                    <div class="tab-content" id="trend-analysis">
-                        <div class="trend-insights">
-                            <div class="insight-card">
-                                <h4>Market Insights</h4>
-                                <ul class="insights-list">
-                                    <li><i class="fas fa-chart-line"></i> Gold prices showing strong upward momentum</li>
-                                    <li><i class="fas fa-trending-up"></i> Silver following gold trend with higher volatility</li>
-                                    <li><i class="fas fa-calendar"></i> Seasonal demand expected to increase prices</li>
-                                    <li><i class="fas fa-globe"></i> Global market conditions supporting precious metals</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Customer Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>What Our Customers Say</h2>
-                <div class="section-divider"></div>
-            </div>
-            
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="stars">
@@ -1053,16 +191,38 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p>"Amazing quality and beautiful traditional designs! I bought my wedding jewellery from New Madi Jewellers and couldn't be happier. The craftsmanship is exceptional."</p>
+                    <p>
+                        Exceptional service and beautiful designs! I purchased a bridal set and the quality was outstanding.
+                        The staff were friendly and helped me choose the perfect pieces.
+                    </p>
                     <div class="testimonial-author">
-                        <img src="images/customer1.jpg" alt="Priya Sharma">
+                        <img src="images/avatars/anita.svg" alt="Photo of Anita Sharma" width="64" height="64" loading="lazy">
                         <div class="author-info">
-                            <h4>Priya Sharma</h4>
-                            <span>Bharatpur</span>
+                            <h4>Anita Sharma</h4>
+                            <span>Bharatpur, Nepal</span>
                         </div>
                     </div>
                 </div>
-                
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>
+                        I ordered a custom gold ring and was amazed by the craftsmanship. They delivered on time and the
+                        fit was perfect. Highly recommended!
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="images/avatars/ramesh.svg" alt="Photo of Ramesh Adhikari" width="64" height="64" loading="lazy">
+                        <div class="author-info">
+                            <h4>Ramesh Adhikari</h4>
+                            <span>Chitwan, Nepal</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="testimonial-card">
                     <div class="stars">
                         <i class="fas fa-star"></i>
@@ -1071,36 +231,22 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p>"Very trustworthy shop with fair pricing. The owner is knowledgeable and helped me choose the perfect gold necklace for my daughter. Highly recommended!"</p>
+                    <p>
+                        Beautiful collection and fair pricing. The team helped me select a Tilhari for a family event and it
+                        was a big hit. Will shop again!
+                    </p>
                     <div class="testimonial-author">
-                        <img src="images/customer2.jpg" alt="Ram Bahadur Thapa">
+                        <img src="images/avatars/sita.svg" alt="Photo of Sita Gurung" width="64" height="64" loading="lazy">
                         <div class="author-info">
-                            <h4>Ram Bahadur Thapa</h4>
-                            <span>Chitwan</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"The traditional Nepali ornaments here are authentic and beautifully made. I've been a customer for years and always satisfied with their service and quality."</p>
-                    <div class="testimonial-author">
-                        <img src="images/customer3.jpg" alt="Sunita Poudel">
-                        <div class="author-info">
-                            <h4>Sunita Poudel</h4>
-                            <span>Bharatpur</span>
+                            <h4>Sita Gurung</h4>
+                            <span>Pokhara, Nepal</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -1125,7 +271,7 @@
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Phone</h4>
-                            <p>+977-56-123456<br>+977-9841234567</p>
+                            <p><a href="tel:">+977-9845654539</a>+977-9841234567</p>
                         </div>
                     </div>
                     
@@ -1133,7 +279,7 @@
                         <i class="fab fa-whatsapp"></i>
                         <div>
                             <h4>WhatsApp</h4>
-                            <p>+977-9841234567</p>
+                            <p>+977-9845654539</p>
                         </div>
                     </div>
                     
@@ -1157,16 +303,16 @@
                 <div class="contact-form-container">
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required autocomplete="name">
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required autocomplete="email">
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
+                            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" autocomplete="tel">
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required autocomplete="off"></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Send Message</button>
                     </form>
@@ -1178,10 +324,10 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6827.569879577997!2d84.42299624293204!3d27.69429140578089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994fb4f9ec80055%3A0x3a9f46561cca3aeb!2sNew%20Madi%20jewellers!5e0!3m2!1sen!2snp!4v1758385704990!5m2!1sen!2snp" 
                     width="100%" 
                     height="400" 
-                    style="border:0;" 
                     allowfullscreen="" 
                     loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
+                    title="New Madi Jewellers location map"
+                    referrerpolicy="strict-origin-when-cross-origin">
                 </iframe>
                
             </div>
@@ -1194,7 +340,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="images/image.png" alt="New Madi Jewellers">
+                        <img src="images/image.png" alt="New Madi Jewellers" loading="lazy" width="64" height="64">
                         <h3>New Madi Jewellers</h3>
                         <p>Where Tradition Meets Elegance</p>
                     </div>
@@ -1207,8 +353,9 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#ornaments">Our Collections</a></li>
-                        <li><a href="#prices">Current Prices</a></li>
+                        
                         <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="admin-gallery.html" target="_blank" rel="nofollow">Gallery Admin</a></li>
                     </ul>
                 </div>
                 
@@ -1226,10 +373,10 @@
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="TikTok" title="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube" title="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                     </div>
                     <div class="contact-info">
                         <p><i class="fas fa-phone"></i> +977-56-123456</p>
@@ -1245,9 +392,27 @@
             </div>
         </div>
     </footer>
+  
+    <!-- Image Lightbox Modal -->
+    <div id="imageLightbox" class="lightbox" aria-modal="true" role="dialog" aria-labelledby="lightboxTitle" hidden>
+        <button class="lightbox-close" aria-label="Close image preview">&times;</button>
+        <div class="lightbox-content">
+          <div class="lightbox-media">
+            <img class="lightbox-image" alt="Ornament full view">
+          </div>
+          <aside class="lightbox-info">
+            <h3 id="lightboxTitle" class="lightbox-title">Title</h3>
+            <div class="lightbox-meta">
+              <span class="lightbox-category">Category</span>
+            </div>
+            <p class="lightbox-desc"></p>
+          </aside>
+        </div>
+    </div>
 
-    <script src="js/script.js"></script>
-    <script src="js/fenegosida-price-fetcher.js"></script>
-    <script src="js/price-analytics.js"></script>
-</body>
+    <!-- Core site script -->
+    <script src="js/script.js?v=1.0" defer></script>
+    <!-- Dynamic gallery -->
+    <script src="js/gallery.js?v=1.0" defer></script>
+  </body>
 </html>

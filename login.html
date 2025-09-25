@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Login - New Madi Jewellers</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    :root{--gold:#FFD700;--bronze:#B8860B}
+    *{box-sizing:border-box}
+    body{font-family:'Poppins',system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(135deg, rgba(255,215,0,0.08), rgba(184,134,11,0.12)); margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:18px}
+    .card{width:100%; max-width:880px; background:#fff; border-radius:16px; box-shadow:0 22px 70px rgba(0,0,0,0.12); border:1px solid #eee; overflow:hidden}
+    .layout{display:grid; grid-template-columns:1.25fr 1fr; min-height:420px}
+    .media{background:url('images/p2.png') center/cover no-repeat; position:relative}
+    .media::after{content:''; position:absolute; inset:0; background:linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,0,0,0.2))}
+    .brand{position:absolute; top:16px; left:16px; display:flex; align-items:center; gap:10px; z-index:1}
+    .brand img{width:40px; height:40px; border-radius:10px}
+    .brand span{color:#fff; font-weight:700; text-shadow:0 1px 6px rgba(0,0,0,0.35)}
+    .form{padding:28px 22px}
+    h1{margin:0 0 8px; font-size:24px}
+    p.sub{margin:0 0 16px; color:#60646c; font-size:13px}
+    label{font-size:12px; color:#5a5f69; margin-bottom:6px; display:block; font-weight:600}
+    input{width:100%; padding:13px 14px; border:1px solid #e0e3e8; border-radius:12px; font-size:14px; font-family:'Poppins',system-ui; transition:border-color .2s ease, box-shadow .2s ease}
+    input:focus{outline:none; border-color:#bfa35a; box-shadow:0 0 0 4px rgba(191,163,90,0.18)}
+    .inline{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:8px}
+    .small{font-size:12px; color:#666; display:flex; align-items:center; gap:8px}
+    .caps{font-size:11px; color:#9a6b00; margin-top:6px; display:none}
+    .actions{display:flex; gap:10px; margin-top:14px}
+    .actions button{flex:1 1 auto; border-radius:12px; font-family:'Poppins',system-ui}
+    #loginBtn{background:linear-gradient(135deg,var(--gold),var(--bronze)); color:#111; border:0; padding:12px 14px; box-shadow:0 10px 24px rgba(184,134,11,0.25)}
+    #loginBtn:hover{transform:translateY(-1px); box-shadow:0 14px 30px rgba(184,134,11,0.35)}
+    .secondary{background:#eef1f5; color:#333; border:1px solid #e0e3e8; padding:12px 14px}
+    .error{color:#b00020; font-size:12px; margin-top:8px; min-height:16px}
+    .footer{margin-top:12px; font-size:12px; color:#777}
+    @media (max-width:900px){ .layout{grid-template-columns:1fr} .media{min-height:200px} }
+  </style>
+</head>
+<body>
+  <div class="card" role="dialog" aria-labelledby="title" aria-modal="true">
+    <div class="layout">
+      <div class="media">
+        <div class="brand">
+          <img src="images/image.png" alt="New Madi Jewellers" />
+          <span>New Madi Jewellers</span>
+        </div>
+      </div>
+      <div class="form">
+        <h1 id="title"><i class="fas fa-user-shield"></i> Admin Login</h1>
+        <p class="sub">Sign in to manage the gallery</p>
+        <div class="field">
+          <label for="user">Username</label>
+          <input id="user" type="text" placeholder="owner" autofocus />
+        </div>
+        <div class="field">
+          <label for="pass">Password</label>
+          <input id="pass" type="password" placeholder="••••••••" autocomplete="current-password" />
+          <div class="inline">
+            <label class="small"><input type="checkbox" id="showPw" /> Show password</label>
+            <a class="small" href="index.html" title="Back to site"><i class="fas fa-arrow-left"></i> Back to site</a>
+          </div>
+          <div class="caps" id="caps">Caps Lock is ON</div>
+        </div>
+        <div class="actions">
+          <button id="loginBtn"><i class="fas fa-right-to-bracket"></i> Login</button>
+          <button class="secondary" id="clearBtn"><i class="fas fa-xmark"></i> Clear</button>
+        </div>
+        <div class="error" id="error"></div>
+        <div class="footer">Protected area. Authorized users only.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const el = (id)=>document.getElementById(id);
+    let API_BASE = location.origin;
+
+    async function loadConfig(){
+      try{
+        const res = await fetch('data/config.json', { cache: 'no-cache' });
+        if (res.ok){
+          const cfg = await res.json();
+          if (cfg && typeof cfg.apiBase === 'string' && cfg.apiBase.trim()){
+            API_BASE = cfg.apiBase.trim().replace(/\/$/, '');
+          }
+        }
+      }catch{}
+    }
+
+    async function serverLogin(username, password){
+      const res = await fetch(API_BASE + '/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ username, password })
+      });
+      if (!res.ok){
+        try{
+          const j = await res.json();
+          throw new Error(j.error || j.message || ('Login failed ('+res.status+')'));
+        }catch{
+          const t = await res.text();
+          throw new Error(t || ('Login failed ('+res.status+')'));
+        }
+      }
+      return res.json();
+    }
+
+    function wireUI(){
+      // Show/hide password
+      el('showPw').addEventListener('change', (e)=>{
+        el('pass').type = e.target.checked ? 'text' : 'password';
+        el('pass').focus();
+      });
+      // Caps hint
+      el('pass').addEventListener('keydown', (e)=>{
+        const on = e.getModifierState && e.getModifierState('CapsLock');
+        el('caps').style.display = on ? 'block' : 'none';
+      });
+      el('pass').addEventListener('blur', ()=>{ el('caps').style.display='none'; });
+      // Enter to submit
+      ['user','pass'].forEach(id=>{
+        el(id).addEventListener('keydown', (e)=>{ if (e.key==='Enter') { e.preventDefault(); el('loginBtn').click(); } });
+      });
+      // Clear
+      el('clearBtn').addEventListener('click', ()=>{ el('user').value=''; el('pass').value=''; el('user').focus(); el('error').textContent=''; });
+
+      // Login
+      el('loginBtn').addEventListener('click', async ()=>{
+        const u = (el('user').value||'').trim() || 'admin';
+        const p = el('pass').value||'';
+        const btn = el('loginBtn');
+        const prev = btn.innerHTML;
+        btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+        el('error').textContent = '';
+        try{
+          const out = await serverLogin(u, p);
+          if (out && out.success){
+            location.href = 'admin-gallery.html';
+          } else {
+            el('error').textContent = (out && (out.error||out.message)) || 'Invalid username or password.';
+          }
+        }catch(e){
+          el('error').textContent = e && e.message ? e.message : 'Login failed. Please try again.';
+        } finally {
+          btn.disabled = false; btn.innerHTML = prev;
+        }
+      });
+    }
+
+    async function init(){
+      await loadConfig();
+      // If already signed in on same origin, go straight to admin
+      try{
+        const res = await fetch(API_BASE + '/api/auth/me', { credentials:'include' });
+        if (res.ok){
+          const me = await res.json();
+          if (me && me.authenticated) { location.href = 'admin-gallery.html'; return; }
+        }
+      }catch{}
+      wireUI();
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  </script>
+</body>
+</html>

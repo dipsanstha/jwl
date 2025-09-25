@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: jewellery-api
+    env: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: node price-scraper.js
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: ADMIN_TOKEN
+        value: changeme
+      - key: NODE_VERSION
+        value: 18

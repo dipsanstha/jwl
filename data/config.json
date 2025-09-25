@@ -1,0 +1,12 @@
+{
+  "apiBase": "https://jewellery-api.onrender.com",
+  "admin": {
+    "users": ["owner"],
+    "passHash": "Super.star@123",
+    "accounts": [
+      { "user": "owner", "passHash": "Super.star@123" },
+      { "user": "admin", "passHash": "Super.star@123" }
+    ],
+    "hint": "Set accounts with per-user SHA-256 hashes. Placeholder hash is for 'changeme123'."
+  }
+}
