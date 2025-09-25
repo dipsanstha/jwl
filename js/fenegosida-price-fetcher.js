@@ -333,27 +333,46 @@ class FenegosidaPriceFetcher {
     }
 }
 
-// Export the class for module usage
-export default FenegosidaPriceFetcher;
-
-// Initialize price fetcher when DOM is loaded if running in browser
-document.addEventListener('DOMContentLoaded', function() {
-    // Only run this in browser environment
-    if (typeof window !== 'undefined') {
-        const priceFetcher = new FenegosidaPriceFetcher();
-        
-        // Start automatic updates
-        priceFetcher.startAutoUpdate();
-        
-        // Add refresh button functionality
-        const refreshButton = document.querySelector('.refresh-prices');
-        if (refreshButton) {
-            refreshButton.addEventListener('click', () => {
-                priceFetcher.refresh();
-            });
+// Make it available globally for direct script usage
+if (typeof window !== 'undefined') {
+    // Initialize price fetcher when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            const priceFetcher = new FenegosidaPriceFetcher();
+            
+            // Start automatic updates
+            if (typeof priceFetcher.startAutoUpdate === 'function') {
+                priceFetcher.startAutoUpdate();
+            }
+            
+            // Add refresh button functionality
+            const refreshButton = document.querySelector('.refresh-prices');
+            if (refreshButton) {
+                refreshButton.addEventListener('click', () => {
+                    if (typeof priceFetcher.refresh === 'function') {
+                        priceFetcher.refresh();
+                    }
+                });
+            }
+            
+            // Make it globally available for manual refresh
+            window.priceFetcher = priceFetcher;
+        } catch (error) {
+            console.error('Error initializing price fetcher:', error);
         }
-        
-        // Make it globally available for manual refresh
-        window.priceFetcher = priceFetcher;
+    });
+}
+
+// Export for module usage
+try {
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = FenegosidaPriceFetcher;
+    } else if (typeof define === 'function' && define.amd) {
+        // Support AMD
+        define([], function() { return FenegosidaPriceFetcher; });
+    } else if (typeof exports !== 'undefined') {
+        exports.FenegosidaPriceFetcher = FenegosidaPriceFetcher;
     }
-});
+} catch (e) {
+    // Ignore export errors in non-module environments
+}
