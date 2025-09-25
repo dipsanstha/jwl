@@ -1,23 +1,11 @@
 @echo off
-REM Simple deployment script to bypass artifact uploads
-REM This script prepares your project for deployment to Render
+REM Simple deployment bypass script
+REM This script bypasses npm install issues completely
 
-echo 🚀 Starting deployment preparation...
+echo 🚀 Starting deployment bypass preparation...
 
 REM Navigate to server directory
 cd server
-
-REM Install dependencies
-echo 📦 Installing dependencies...
-npm install
-if %errorlevel% neq 0 (
-    echo ❌ npm install failed!
-    echo 💡 This is expected if you're having npm issues.
-    echo 🔄 Render will install dependencies automatically.
-    echo.
-    echo Press any key to continue...
-    pause
-)
 
 REM Create build directory if it doesn't exist
 if not exist build mkdir build
@@ -27,15 +15,12 @@ echo 📋 Preparing build files...
 copy price-scraper.js build\ >nul 2>&1
 copy test-scraper.js build\ >nul 2>&1
 copy package.json build\ >nul 2>&1
-xcopy /E /I /H /Y node_modules build\node_modules >nul 2>&1
-if %errorlevel% neq 0 (
-    echo 📝 Note: node_modules not found locally - Render will install dependencies automatically.
-)
 
 REM Create a simple build info file
 echo Build completed at %date% %time% > build\build-info.txt
 echo Node version: node --version >> build\build-info.txt 2>&1
 echo Platform: Render.com >> build\build-info.txt
+echo Deployment: BYPASS MODE >> build\build-info.txt
 
 echo ✅ Build preparation completed!
 echo 📁 Build files are ready in server\build\
@@ -52,4 +37,7 @@ echo 3. The build will run: npm install
 echo 4. The server will start: node price-scraper.js
 echo.
 echo 🎉 Deployment bypass successful!
+echo.
+echo 💡 Note: This bypass mode skips local npm install.
+echo    Render will handle dependency installation automatically.
 pause
