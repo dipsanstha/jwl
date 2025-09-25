@@ -1,0 +1,40 @@
+name: Archive Site Assets
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Show workspace layout
+        run: |
+          echo "Working directory: $(pwd)"
+          ls -R
+
+      - name: Upload site bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-bundle
+          path: |
+            ./css/price-analytics.css
+            ./css/ornament-list.css
+            ./data/
+            ./data/gallery.json
+            ./data/config.json
+            ./login.html
+            ./robots.txt
+            ./sitemap.xml
+            ./js/
+            ./js/price-analytics.js
+            ./js/priceManager.js
+            ./js/script.js
+            ./js/gallery.js
+            ./js/fenegosida-price-fetcher.js
+          if-no-files-found: warn
