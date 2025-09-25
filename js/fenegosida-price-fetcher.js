@@ -333,26 +333,27 @@ class FenegosidaPriceFetcher {
     }
 }
 
-// Initialize price fetcher when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    const priceFetcher = new FenegosidaPriceFetcher();
-    
-    // Start automatic updates
-    priceFetcher.startAutoUpdate();
-    
-    // Add refresh button functionality
-    const refreshButton = document.querySelector('.refresh-prices');
-    if (refreshButton) {
-        refreshButton.addEventListener('click', () => {
-            priceFetcher.refresh();
-        });
-    }
-    
-    // Make it globally available for manual refresh
-    window.priceFetcher = priceFetcher;
-});
+// Export the class for module usage
+export default FenegosidaPriceFetcher;
 
-// Export for module usage
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = FenegosidaPriceFetcher;
-}
+// Initialize price fetcher when DOM is loaded if running in browser
+document.addEventListener('DOMContentLoaded', function() {
+    // Only run this in browser environment
+    if (typeof window !== 'undefined') {
+        const priceFetcher = new FenegosidaPriceFetcher();
+        
+        // Start automatic updates
+        priceFetcher.startAutoUpdate();
+        
+        // Add refresh button functionality
+        const refreshButton = document.querySelector('.refresh-prices');
+        if (refreshButton) {
+            refreshButton.addEventListener('click', () => {
+                priceFetcher.refresh();
+            });
+        }
+        
+        // Make it globally available for manual refresh
+        window.priceFetcher = priceFetcher;
+    }
+});
