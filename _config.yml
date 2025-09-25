@@ -1,0 +1,22 @@
+title: New Madi Jewellers
+description: >-
+  Static site for New Madi Jewellers. Builds should ignore backend assets.
+baseurl: ""
+url: ""
+theme: null
+
+plugins: []
+
+exclude:
+  - server/
+  - server/**
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - render.yaml
+  - DEPLOY_RENDER.md
+  - README.md
+  - COLLECTION_UPDATES.md
+  - .github/
+  - Gemfile
+  - Gemfile.lock
