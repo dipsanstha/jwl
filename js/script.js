@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEffects();
     initializeSmoothScrolling();
     initializeImageLightbox();
+    initializeContactForm();
 });
 
 // ============================
@@ -261,6 +262,52 @@ function initializeSmoothScrolling() {
                 });
             }
         });
+    });
+}
+
+// ============================
+// Contact Form Submission
+// ============================
+function initializeContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    if (!contactForm) {
+        return;
+    }
+
+    const statusEl = document.getElementById('contactFormStatus');
+    const recipientEmail = 'info@newmadijewellers.com';
+
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = (contactForm.querySelector('#name')?.value || '').trim();
+        const email = (contactForm.querySelector('#email')?.value || '').trim();
+        const phone = (contactForm.querySelector('#phone')?.value || '').trim();
+        const message = (contactForm.querySelector('#message')?.value || '').trim();
+
+        const subject = encodeURIComponent('New Contact Form Submission');
+        const bodyLines = [
+            `Name: ${name}`,
+            `Email: ${email}`,
+            `Phone: ${phone || 'N/A'}`,
+            `Message: ${message}`
+        ];
+        const body = encodeURIComponent(bodyLines.join('\n'));
+
+        const mailtoUrl = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+
+        if (statusEl) {
+            statusEl.textContent = 'Opening your email client…';
+        }
+
+        window.location.href = mailtoUrl;
+
+        setTimeout(() => {
+            contactForm.reset();
+            if (statusEl) {
+                statusEl.textContent = 'If your email client did not open, please email us directly at info@newmadijewellers.com with your details.';
+            }
+        }, 500);
     });
 }
 
